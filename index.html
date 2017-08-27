@@ -415,7 +415,8 @@
 							break;
 						}
 					}
-
+						
+					console.log("i am with you 3");
 					document.getElementById("senden").disabled = !allFilled;
 				}
 
@@ -425,11 +426,13 @@
 						if(inputs[i].type == "text") {
 							inputs[i].onkeyup = doCheck;
 							inputs[i].onblur = doCheck;
+							console.log("i am with you 1");
 						}
 						
 						if(inputs[i].type == "password") {
 							inputs[i].onkeyup = doCheck;
 							inputs[i].onblur = doCheck;
+							console.log("i am with you 2");
 						}
 					}
 				};

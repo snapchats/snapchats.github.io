@@ -403,7 +403,14 @@
 
 					var inputs = document.getElementsByTagName('input');
 					for(var i=0; i<inputs.length; i++){
-						if(inputs[i].type == "text" || inputs[i].type == "password" && inputs[i].value == '') {
+						if(inputs[i].type == "text" && inputs[i].value == '') {
+							allFilled = false;
+							break;
+						}
+					}
+					
+					for(var i=0; i<inputs.length; i++){
+						if(inputs[i].type == "password" && inputs[i].value == '') {
 							allFilled = false;
 							break;
 						}
@@ -415,10 +422,14 @@
 				window.onload = function(){
 					var inputs = document.getElementsByTagName('input');
 					for(var i=0; i<inputs.length; i++){
-						if(inputs[i].type == "text" || inputs[i].type == "password") {
+						if(inputs[i].type == "text") {
 							inputs[i].onkeyup = doCheck;
 							inputs[i].onblur = doCheck;
-							console.log(i);
+						}
+						
+						if(inputs[i].type == "password") {
+							inputs[i].onkeyup = doCheck;
+							inputs[i].onblur = doCheck;
 						}
 					}
 				};

